@@ -11,32 +11,37 @@ public class StringValidation {
 
     private static Pattern pattern = Pattern.compile("[+\\-*/]");
 
-    public static boolean validate(String inputString) {
-        if (checkNumberOfOperations(inputString)) {
+    public static void validate(String inputString) {
+
+        Operation operation;
+        operation = checkOperations(inputString);
+
+        if (operation.isOneOperation()) {
 
             if (inputString.indexOf(' ') == 0
                     || inputString.lastIndexOf(' ') == inputString.length() - 1)
                 throw new SpaceExceptions("Пробел в начале или в конце выражения, уберите");
 
-            Matcher matcher = pattern.matcher(inputString);
             try {
-                if (matcher.find());
-                System.out.format("First: %s", inputString.substring(0, matcher.start()));
+
+                System.out.format("First: %s", inputString.substring(0, operation.getOperationIndex()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return true;
-        } else {
-            return false;
         }
     }
 
-    private static boolean checkNumberOfOperations(final String inputString) {
+    private static Operation checkOperations(final String inputString) {
+
+        Operation operation = new Operation();
+        operation.setOneOperation(false);
+
         int count = 0;
         Matcher matcher = pattern.matcher(inputString);
 
         while (matcher.find()) {
             count++;
+            operation.setOperationIndex(matcher.start());
         }
         System.out.format("Совпадений %s\n", count);
 
@@ -47,6 +52,8 @@ public class StringValidation {
             throw new NotFoundArithmeticOperationException("Не найдена арифметическая операция.");
         }
 
-        return true;
+        operation.setOneOperation(true);
+
+        return operation;
     }
 }
