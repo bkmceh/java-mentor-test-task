@@ -11,8 +11,6 @@ public class Main {
 
         String inputString = scanner.nextLine();
 
-        if (!StringValidation.validate(inputString)) {
-            System.out.println("Not found((((");
-        }
+        StringValidation.validate(inputString);
     }
 }
