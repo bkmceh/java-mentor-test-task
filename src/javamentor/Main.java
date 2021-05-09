@@ -1,5 +1,6 @@
 package javamentor;
 
+import javamentor.calculation.Calculation;
 import javamentor.validation.StringValidation;
 
 import java.util.Scanner;
@@ -11,6 +12,6 @@ public class Main {
 
         String inputString = scanner.nextLine();
 
-        StringValidation.validate(inputString);
+        Calculation.calculate(inputString);
     }
 }
