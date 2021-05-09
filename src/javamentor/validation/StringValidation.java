@@ -9,32 +9,23 @@ import java.util.regex.Pattern;
 
 public class StringValidation {
 
-    private static Pattern pattern = Pattern.compile("[+\\-*/]");
+    private static final Pattern pattern = Pattern.compile("[+\\-*/]");
+
 
     public static void validate(String inputString) {
 
         Operation operation;
         operation = checkOperations(inputString);
 
-        if (operation.isOneOperation()) {
+        checkSpaces(inputString, operation);
 
-            if (inputString.indexOf(' ') == 0
-                    || inputString.lastIndexOf(' ') == inputString.length() - 1)
-                throw new SpaceExceptions("Пробел в начале или в конце выражения, уберите");
 
-            try {
 
-                System.out.format("First: %s", inputString.substring(0, operation.getOperationIndex()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     private static Operation checkOperations(final String inputString) {
 
         Operation operation = new Operation();
-        operation.setOneOperation(false);
 
         int count = 0;
         Matcher matcher = pattern.matcher(inputString);
@@ -52,8 +43,25 @@ public class StringValidation {
             throw new NotFoundArithmeticOperationException("Не найдена арифметическая операция.");
         }
 
-        operation.setOneOperation(true);
-
         return operation;
+    }
+
+    private static void checkSpaces(final String inputString, final Operation operation) {
+        if (inputString.indexOf(' ') == 0
+                || inputString.lastIndexOf(' ') == inputString.length() - 1) {
+            throw new SpaceExceptions("Уберите лишние пробелы в начале или в конце.");
+        }
+
+        if (operation.getOperationIndex() - inputString.indexOf(' ') != 1) {
+            throw new SpaceExceptions("Проверьте пробелы в выражении перед оператором.");
+        }
+
+        if (inputString.lastIndexOf(' ') - operation.getOperationIndex() != 1) {
+            throw new SpaceExceptions("Проверьте пробелы в выражении после оператора.");
+        }
+    }
+
+    private static void getNumbers(final String inputString, final Operation operation) {
+
     }
 }
