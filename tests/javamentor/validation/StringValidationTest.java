@@ -130,6 +130,18 @@ public class StringValidationTest {
         StringValidation.validate(inputString);
     }
 
+    @Test(expected = RomanNumbersException.class)
+    public void romanNumbersException3() {
+        String inputString = "IX / X";
+        StringValidation.validate(inputString);
+    }
+
+    @Test
+    public void romanNumbers2() {
+        String inputString = "IX / III";
+        StringValidation.validate(inputString);
+    }
+
     @Test
     public void romanNumbers5() {
         String inputString = "IX * V";
