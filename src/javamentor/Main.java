@@ -12,6 +12,8 @@ public class Main {
 
         String inputString = scanner.nextLine();
 
-        Calculation.calculate(inputString);
+        StringValidation.validate(inputString);
+
+        Calculation.calculate();
     }
 }
