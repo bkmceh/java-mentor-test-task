@@ -2,6 +2,7 @@ package javamentor.validation;
 
 import javamentor.exceptions.ManyArithmeticOperationsException;
 import javamentor.exceptions.NotFoundArithmeticOperationException;
+import javamentor.exceptions.RomanNumbersException;
 import javamentor.exceptions.SpaceExceptions;
 import org.junit.Test;
 
@@ -102,6 +103,42 @@ public class StringValidationTest {
     @Test(expected = SpaceExceptions.class)
     public void checkingSpaces7() {
         String inputString = "5+ 4";
+        StringValidation.validate(inputString);
+    }
+
+    @Test
+    public void romanNumbers1() {
+        String inputString = "I + II";
+        StringValidation.validate(inputString);
+    }
+
+    @Test(expected = RomanNumbersException.class)
+    public void romanNumbersException1() {
+        String inputString = "I - IX";
+        StringValidation.validate(inputString);
+    }
+
+    @Test
+    public void romanNumbers3() {
+        String inputString = "I + I";
+        StringValidation.validate(inputString);
+    }
+
+    @Test(expected = RomanNumbersException.class)
+    public void romanNumbersException2() {
+        String inputString = "IX - X";
+        StringValidation.validate(inputString);
+    }
+
+    @Test
+    public void romanNumbers5() {
+        String inputString = "IX * V";
+        StringValidation.validate(inputString);
+    }
+
+    @Test(expected = RomanNumbersException.class)
+    public void romanNumbers6() {
+        String inputString = "X / XI";
         StringValidation.validate(inputString);
     }
 }
