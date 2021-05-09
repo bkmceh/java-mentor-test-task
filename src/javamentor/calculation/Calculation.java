@@ -1,12 +1,42 @@
 package javamentor.calculation;
 
-import javamentor.validation.StringValidation;
+import javamentor.numbers.Numbers;
+import javamentor.numbers.arabic.ArabicNumbers;
+import javamentor.validation.Operation;
 
 public class Calculation {
 
-    public static void calculate(final String inputString) {
+    public static void calculate() {
 
-        StringValidation.validate(inputString);
+        if (Numbers.isRoman) {
+            romanCalculate();
+        }
 
+    }
+
+
+    private static void romanCalculate() {
+
+        switch (Operation.getOperationSign()) {
+            case '+':
+                System.out.format("\nAnswer: %s\n",
+                        ArabicNumbers.getFirstNumber() + ArabicNumbers.getSecondNumber());
+                break;
+
+            case '-':
+                System.out.format("\nAnswer: %s\n",
+                        ArabicNumbers.getFirstNumber() - ArabicNumbers.getSecondNumber());
+                break;
+
+            case '*':
+                System.out.format("\nAnswer: %s\n",
+                        ArabicNumbers.getFirstNumber() * ArabicNumbers.getSecondNumber());
+                break;
+
+            case '/':
+                System.out.format("\nAnswer: %s\n",
+                        ArabicNumbers.getFirstNumber() / ArabicNumbers.getSecondNumber());
+                break;
+        }
     }
 }
