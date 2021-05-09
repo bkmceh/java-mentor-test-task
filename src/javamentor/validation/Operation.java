@@ -2,13 +2,23 @@ package javamentor.validation;
 
 public class Operation {
 
-    private int operationIndex;
+    private static int operationIndex;
 
-    public int getOperationIndex() {
+    private static char operationSign;
+
+    public static int getOperationIndex() {
         return operationIndex;
     }
 
-    public void setOperationIndex(int operationIndex) {
-        this.operationIndex = operationIndex;
+    public static void setOperationIndex(int operationIndex) {
+        Operation.operationIndex = operationIndex;
+    }
+
+    public static char getOperationSign() {
+        return operationSign;
+    }
+
+    public static void setOperationSign(char operationSign) {
+        Operation.operationSign = operationSign;
     }
 }
