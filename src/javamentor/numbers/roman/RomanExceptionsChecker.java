@@ -9,7 +9,7 @@ public class RomanExceptionsChecker {
 
         if (firstNumber <= secondNumber && Operation.getOperationSign() == '-') {
             throw new RomanNumbersException("Ответ не может быть отрицательным или равен 0" +
-                    "при римских числах.");
+                    " при римских числах.");
         }
 
         if (firstNumber % secondNumber != 0 && Operation.getOperationSign() == '/') {
