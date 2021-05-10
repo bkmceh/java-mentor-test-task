@@ -1,10 +1,8 @@
 package javamentor.validation;
 
-import javamentor.exceptions.ManyArithmeticOperationsException;
-import javamentor.exceptions.NotFoundArithmeticOperationException;
-import javamentor.exceptions.RomanNumbersException;
-import javamentor.exceptions.SpaceExceptions;
+import javamentor.exceptions.*;
 import javamentor.numbers.Numbers;
+import javamentor.numbers.arabic.ArabicExceptionsChecker;
 import javamentor.numbers.arabic.ArabicNumbers;
 import javamentor.numbers.roman.RomanConverter;
 import javamentor.numbers.roman.RomanExceptionsChecker;
@@ -20,8 +18,6 @@ public class StringValidation {
     public static void validate(String inputString) {
 
         checkOperations(inputString);
-
-        System.out.println(Operation.getOperationSign());
 
         checkSpaces(inputString);
 
@@ -40,7 +36,7 @@ public class StringValidation {
         }
 
         if (count > 1) {
-            throw new ManyArithmeticOperationsException("Число арифметических операций чет много");
+            throw new ManyArithmeticOperationsException("Допустима лишь 1 арифметическая операция.");
         }
         if (count == 0) {
             throw new NotFoundArithmeticOperationException("Не найдена арифметическая операция.");
@@ -71,7 +67,6 @@ public class StringValidation {
         String secondNumber = inputString.substring(Operation.getOperationIndex() + 2);
 
         if (isRomanNumbers(firstNumber, secondNumber)) {
-            Numbers.isRoman = true;
             System.out.println("This numbers are roman!");
             RomanConverter.convertRomanToArabic();
             ArabicNumbers.setFirstNumber(RomanConverter.romanToArabic.get(firstNumber));
@@ -79,6 +74,19 @@ public class StringValidation {
             RomanExceptionsChecker.checkOnExceptions(
                     ArabicNumbers.getFirstNumber(),
                     ArabicNumbers.getSecondNumber());
+            Numbers.isRoman = true;
+        } else {
+            try {
+                ArabicNumbers.setFirstNumber(Integer.parseInt(firstNumber));
+                ArabicNumbers.setSecondNumber(Integer.parseInt(secondNumber));
+            } catch (NumberFormatException e) {
+                throw new ArabicNumbersException("Введите только арабские или римские числа от 1 до 10.");
+            }
+            ArabicExceptionsChecker.checkOnExceptions(
+                    ArabicNumbers.getFirstNumber(),
+                    ArabicNumbers.getSecondNumber()
+            );
+            Numbers.isArabic = true;
         }
 
     }
