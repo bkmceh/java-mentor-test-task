@@ -2,6 +2,7 @@ package javamentor.calculation;
 
 import javamentor.numbers.Numbers;
 import javamentor.numbers.arabic.ArabicNumbers;
+import javamentor.numbers.roman.RomanConverter;
 import javamentor.operation.Operation;
 
 public class Calculation {
@@ -17,28 +18,31 @@ public class Calculation {
 
     }
 
-
     private static void romanCalculate() {
 
         switch (Operation.getOperationSign()) {
             case '+':
-                System.out.format("\nAnswer: %s\n",
-                        ArabicNumbers.getFirstNumber() + ArabicNumbers.getSecondNumber());
+                System.out.format("%s\n",
+                        RomanConverter.convertArabicToRoman(
+                                ArabicNumbers.getFirstNumber() + ArabicNumbers.getSecondNumber()));
                 break;
 
             case '-':
-                System.out.format("\nAnswer: %s\n",
-                        ArabicNumbers.getFirstNumber() - ArabicNumbers.getSecondNumber());
+                System.out.format("%s\n",
+                        RomanConverter.convertArabicToRoman(
+                                ArabicNumbers.getFirstNumber() - ArabicNumbers.getSecondNumber()));
                 break;
 
             case '*':
-                System.out.format("\nAnswer: %s\n",
-                        ArabicNumbers.getFirstNumber() * ArabicNumbers.getSecondNumber());
+                System.out.format("%s\n",
+                        RomanConverter.convertArabicToRoman(
+                                ArabicNumbers.getFirstNumber() * ArabicNumbers.getSecondNumber()));
                 break;
 
             case '/':
-                System.out.format("\nAnswer: %s\n",
-                        ArabicNumbers.getFirstNumber() / ArabicNumbers.getSecondNumber());
+                System.out.format("%s\n",
+                        RomanConverter.convertArabicToRoman(
+                                ArabicNumbers.getFirstNumber() / ArabicNumbers.getSecondNumber()));
                 break;
         }
     }
