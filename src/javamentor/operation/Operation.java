@@ -1,4 +1,4 @@
-package javamentor.validation;
+package javamentor.operation;
 
 public class Operation {
 
