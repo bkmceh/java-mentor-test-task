@@ -7,6 +7,7 @@ import javamentor.numbers.arabic.ArabicNumbers;
 import javamentor.numbers.roman.RomanConverter;
 import javamentor.numbers.roman.RomanExceptionsChecker;
 import javamentor.numbers.roman.RomanNumbersEnum;
+import javamentor.operation.Operation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
