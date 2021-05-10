@@ -1,7 +1,7 @@
 package javamentor.numbers.roman;
 
 import javamentor.exceptions.RomanNumbersException;
-import javamentor.validation.Operation;
+import javamentor.operation.Operation;
 
 public class RomanExceptionsChecker {
 
