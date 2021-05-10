@@ -1,5 +1,6 @@
 package javamentor.operation;
 
+// Класс хранит расположение арифметического знака и какой он конкретно
 public class Operation {
 
     private static int operationIndex;
@@ -10,7 +11,7 @@ public class Operation {
         return operationIndex;
     }
 
-    public static void setOperationIndex(int operationIndex) {
+    public static void setOperationIndex(final int operationIndex) {
         Operation.operationIndex = operationIndex;
     }
 
@@ -18,7 +19,7 @@ public class Operation {
         return operationSign;
     }
 
-    public static void setOperationSign(char operationSign) {
+    public static void setOperationSign(final char operationSign) {
         Operation.operationSign = operationSign;
     }
 }

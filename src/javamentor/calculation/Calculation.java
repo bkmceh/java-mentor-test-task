@@ -5,8 +5,10 @@ import javamentor.numbers.arabic.ArabicNumbers;
 import javamentor.numbers.roman.RomanConverter;
 import javamentor.operation.Operation;
 
+// Класс который производит вычисления и выводит ответ
 public class Calculation {
 
+    // Основной метод в котором происходит вычисление
     public static void calculate() {
 
         if (Numbers.isRoman) {

@@ -12,11 +12,14 @@ import javamentor.operation.Operation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// Класс для проверки входящей строки
 public class StringValidation {
 
+    // Использую этот паттерн для проверки знаков операции во входящей строке
     private static final Pattern pattern = Pattern.compile("[+\\-*/]");
 
-    public static void validate(String inputString) {
+    // Основной метод для проверки строки
+    public static void validate(final String inputString) {
 
         checkOperations(inputString);
 
@@ -26,6 +29,7 @@ public class StringValidation {
 
     }
 
+    // Проверка присутствия знака операции и их количества
     private static void checkOperations(final String inputString) {
 
         int count = 0;
@@ -47,6 +51,7 @@ public class StringValidation {
 
     }
 
+    // Проверка различных вариантов с пробелами в начале или в конце строки
     private static void checkSpaces(final String inputString) {
         if (inputString.indexOf(' ') == 0
                 || inputString.lastIndexOf(' ') == inputString.length() - 1) {
@@ -62,6 +67,7 @@ public class StringValidation {
         }
     }
 
+    // Проверка двух введенных чисел
     private static void checkNumbers(final String inputString) {
 
         String firstNumber = inputString.substring(0, Operation.getOperationIndex() - 1);
@@ -91,6 +97,7 @@ public class StringValidation {
 
     }
 
+    // Проверка являются ли 2 числа римскими
     private static boolean isRomanNumbers(final String firstNumber,
                                           final String secondNumber) {
 

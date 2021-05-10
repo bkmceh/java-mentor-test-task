@@ -3,6 +3,7 @@ package javamentor.numbers.arabic;
 import javamentor.exceptions.ArabicNumbersException;
 import javamentor.operation.Operation;
 
+// Класс проверяет возможные конкретные ошибки с арабскими числами
 public class ArabicExceptionsChecker {
 
     public static void checkOnExceptions(final int firstNumber, final int secondNumber) {

@@ -2,6 +2,7 @@ package javamentor.numbers.roman;
 
 import java.util.HashMap;
 
+// Конвертер чисел
 public class RomanConverter {
 
     public static HashMap<String, Integer> romanToArabic = new HashMap<>();
