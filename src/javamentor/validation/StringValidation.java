@@ -68,7 +68,6 @@ public class StringValidation {
         String secondNumber = inputString.substring(Operation.getOperationIndex() + 2);
 
         if (isRomanNumbers(firstNumber, secondNumber)) {
-            System.out.println("This numbers are roman!");
             RomanConverter.convertRomanToArabic();
             ArabicNumbers.setFirstNumber(RomanConverter.romanToArabic.get(firstNumber));
             ArabicNumbers.setSecondNumber(RomanConverter.romanToArabic.get(secondNumber));
