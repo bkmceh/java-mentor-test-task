@@ -12,9 +12,5 @@ public class ArabicExceptionsChecker {
             throw new ArabicNumbersException("Арабские числа должны быть от 1 до 10.");
         }
 
-        if (firstNumber % secondNumber != 0 && Operation.getOperationSign() == '/') {
-            throw new ArabicNumbersException("Ответ при делении не целое число.");
-        }
-
     }
 }

@@ -13,8 +13,8 @@ public class RomanExceptionsChecker {
                     " при римских числах.");
         }
 
-        if (firstNumber % secondNumber != 0 && Operation.getOperationSign() == '/') {
-            throw new RomanNumbersException("Ответ при делении не целое число.");
+        if (firstNumber < secondNumber && Operation.getOperationSign() == '/') {
+            throw new RomanNumbersException("Ответ должен быть больше нуля при римских числах.");
         }
     }
 }
